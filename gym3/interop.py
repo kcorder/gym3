@@ -291,7 +291,7 @@ class ToGymEnv:
         print("Warning: seed ignored")
 
     def close(self):
-        pass
+        self.env.env.close()
 
     @property
     def unwrapped(self):
@@ -340,7 +340,7 @@ class ToBaselinesVecEnv:
             return info["rgb"]
 
     def close(self):
-        pass
+        self.env.env.close()
 
 
 def _make_gym_env(env_fn, env_kwargs, render_mode=None, seed=None):
